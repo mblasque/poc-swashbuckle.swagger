@@ -1,12 +1,12 @@
 using System;
+using System.IO;
+using System.Reflection;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using System.IO;
 
 namespace SwaggerExample.WebApi
 {
@@ -58,8 +58,11 @@ namespace SwaggerExample.WebApi
 
             app.UseSwaggerUI(c =>
             {
+                c.InjectStylesheet("/swagger-ui/custom.css");
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
 

@@ -29,7 +29,7 @@ namespace SwaggerExample.WebApi.Controllers
         /// <summary>
         /// Get something by id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> ID to get</param>
         /// <returns></returns>
         [HttpGet]
         [Route("GetWithId/{id}")]
